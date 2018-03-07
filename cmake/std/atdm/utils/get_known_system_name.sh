@@ -29,6 +29,12 @@ elif [[ $THIS_HOSTNAME == "white"* ]] ; then
 elif [[ $THIS_HOSTNAME == "ride"* ]] ; then
   ATDM_HOSTNAME=ride
   ATDM_SYSTEM_NAME=ride
+elif [[ $THIS_HOSTNAME == *"ellis"* ]] ; then 
+  ATDM_HOSTNAME=ellis
+  ATDM_SYSTEM_NAME=ellis
+elif [[ $THIS_HOSTNAME == *"bowman"* ]] ; then
+  ATDM_HOSTNAME=bowman
+  ATDM_SYSTEM_NAME=bowman
 fi
 
 # ToDo: Add more know hosts as you add them!
