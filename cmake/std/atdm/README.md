@@ -261,22 +261,23 @@ Once logged on to `bowman` (on the SON) or `ellis` (on the SRN), one can
 directly configure and build on the login node (being careful not to overload
 the node).  But to run the tests, one must run on the compute nodes using the
 `srun` command.  For example, to configure, build and run the tests for say
-`MueuLu` on `hansen`, (after cloning Trilinos on the `develop` branch) one
+`Panzer` on `ellis`, (after cloning Trilinos on the `develop` branch) one
 would do:
 
 
 ```
-$ cd <some_build_dir>/
+$ cd $build_dir
 
-$ source $TRILINOS_DIR/cmake/std/atdm/load-env.sh intel-opt-openmp
+$ source $TRILINOS_DIR/cmake/std/atdm/load-env.sh $JOB_NAME
 
 $ cmake \
   -GNinja \
-  -DTrilinos_CONFIGURE_OPTIONS_FILE:STRING=cmake/std/atdm/ATDMDevEnv.cmake \
-  -DTrilinos_ENABLE_TESTS=ON -DTrilinos_ENABLE_MueLu=ON \
+  -DTrilinos_CONFIGURE_OPTIONS_FILE:STRING=$TRILINOS_DIR/cmake/std/atdm/ATDMDevEnv.cmake \
+  -DTrilinos_ENABLE_TESTS=ON \
+  -DTrilinos_ENABLE_Panzer=ON \
   $TRILINOS_DIR
 
-$ make NP=16
+$ ninja -j16
 
 $ srun ctest -j16
 ```
@@ -356,5 +357,8 @@ they support are:
 
 * `shiller/`: Supports GNU, Intel, and CUDA builds on both the SRN machine
   `shiller` and the mirror SON machine `hansen`.
+
+* `ellis/`: Supports Intel builds on both the SRN machine
+  `ellis` and the mirror SON machine `bowman`.
 
 * ???
