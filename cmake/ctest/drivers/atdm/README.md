@@ -236,6 +236,9 @@ The following `<system_name>` sub-directories exist:
 
 * `shiller/`: Contains the files to drive builds on the SRN test bed machine
   `shiller` which also can be run on the SON machine `hansen`.
+  
+* `ellis/`: Contains the files to drive builds on the SRN test bed machine
+  `ellis` which also can be run on the SON machine `bowman`.
 
 * `sems_gcc-7.2.0/`: Contains driver scripts for a on-off GCC 7.2.0 build
   based on the SEMS system.  This build really does not fit into the system
