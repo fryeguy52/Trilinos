@@ -171,6 +171,7 @@ $ ./checkin-test-sems.sh <job-name-0> <job-name-1> ... \
 
 * <a href="#ridewhite">ride/white</a>
 * <a href="#shillerhansen">shiller/hansen</a>
+* <a href="#ellisbowman">ellis/bowman</a>
 
 
 ### ride/white
@@ -252,6 +253,32 @@ $ srun ./checkin-test-sems.sh intel-opt-openmp \
   --enable-all-packages=off --no-enable-fwd-packages \
   --enable-packages=MueLu \
   --local-do-all
+```
+
+### ellis/bowman
+
+Once logged on to `bowman` (on the SON) or `ellis` (on the SRN), one can
+directly configure and build on the login node (being careful not to overload
+the node).  But to run the tests, one must run on the compute nodes using the
+`srun` command.  For example, to configure, build and run the tests for say
+`MueuLu` on `hansen`, (after cloning Trilinos on the `develop` branch) one
+would do:
+
+
+```
+$ cd <some_build_dir>/
+
+$ source $TRILINOS_DIR/cmake/std/atdm/load-env.sh intel-opt-openmp
+
+$ cmake \
+  -GNinja \
+  -DTrilinos_CONFIGURE_OPTIONS_FILE:STRING=cmake/std/atdm/ATDMDevEnv.cmake \
+  -DTrilinos_ENABLE_TESTS=ON -DTrilinos_ENABLE_MueLu=ON \
+  $TRILINOS_DIR
+
+$ make NP=16
+
+$ srun ctest -j16
 ```
 
 
