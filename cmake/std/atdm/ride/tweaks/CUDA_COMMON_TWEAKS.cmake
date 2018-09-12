@@ -4,3 +4,6 @@ ATDM_SET_ENABLE(PanzerAdaptersSTK_MixedPoissonExample-ConvTest-Hex-Order-3_DISAB
 # Disable randomly failing MueLu tests (#2311)
 ATDM_SET_ENABLE(MueLu_ParameterListInterpreterTpetra_MPI_1_DISABLE ON)
 ATDM_SET_ENABLE(MueLu_ParameterListInterpreterTpetraHeavy_MPI_1_DISABLE ON)
+
+# Disable randomly failing MueLu tests (#3290)
+ATDM_SET_ENABLE(Ifpack2_BlockTriDiContainerUnitAndPerfTests_MPI_4_DISABLE ON)
