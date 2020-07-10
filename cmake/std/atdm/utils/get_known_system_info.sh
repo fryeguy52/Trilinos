@@ -49,7 +49,7 @@ fi
 #echo "Hostname = '$realHostname'"
 
 #
-# List out all of the known system envs
+# LOAist out all of the known system envs
 #
 # The order these are listed in this array matters only if multiple known
 # system name keywords are listed in the build name string.  For example, if
@@ -67,6 +67,7 @@ ATDM_KNOWN_SYSTEM_NAMES_LIST=(
   ats1
   mutrino   # Deprecated, to be repalced by 'ats1'
   waterman
+  weaver
   ats2
   van1-tx2
   cts1empire
@@ -115,6 +116,9 @@ elif [[ $realHostname == "ride"* ]] ; then
 elif [[ $realHostname == "waterman"* ]] ; then
   hostnameMatch=waterman
   hostnameMatchSystemName=waterman
+elif [[ $realHostname == "weaver"* ]] ; then
+  hostnameMatch=weaver
+  hostnameMatchSystemName=weaver
 elif [[ $realHostname == "vortex"* ]] ; then
   hostnameMatch=vortex
   hostnameMatchSystemName=ats2
