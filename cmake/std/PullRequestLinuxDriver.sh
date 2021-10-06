@@ -14,6 +14,7 @@ function bootstrap_modules() {
     cuda_regex=".*(_cuda_).*"
     weaver_regex=".*(weaver).*"
     vortex_regex=".*(vortex).*"
+    caraway_regex=".*(caraway).*"
     if [[ ${JOB_BASE_NAME:?} =~ ${cuda_regex} ]]; then
         if [[ ${NODE_NAME:?} =~ ${weaver_regex} ]]; then
             message_std "PRDriver> " "Job is CUDA"
@@ -29,10 +30,20 @@ function bootstrap_modules() {
             module load python/3.7.2
             get_python_packages pip3
             export PYTHON_EXE=python3
+	    export https_proxy=''
+	    export http_proxy=''
+	    export no_proxy=*
         else
             message_std "PRDriver> " "ERROR: Unable to find matching environment for CUDA job not on Ride."
             exit -1
         fi
+    elif [[ ${JOB_BASE_NAME:?} =~ ${caraway_regex} ]]; then
+        module unload git
+        module unload python
+        module load git/2.9.4
+	module load python/3.7.3
+        get_python_packages pip3
+        export PYTHON_EXE=python3	
     else
       	source /projects/sems/modulefiles/utils/sems-modules-init.sh
       	module unload sems-git
@@ -59,7 +70,6 @@ if [[ "${TRILINOS_PR_DO_NOT_SET_PROXY}}" == "" ]] ; then
   export http_proxy=http://proxy.sandia.gov:80
   export no_proxy='localhost,.sandia.gov,localnets,127.0.0.1,169.254.0.0/16,forge.sandia.gov'
 fi
-
 
 # bootstrap the python and git modules for this system
 bootstrap_modules
