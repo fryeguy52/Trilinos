@@ -87,29 +87,30 @@ SET(Trilinos_ENABLE_PyTrilinos OFF CACHE BOOL "Set by default for PR testing")
 # Options (still from SEMSDevEnv.cmake) specific to TPLs
 # TPL enables handled previously
 
-SET(Boost_INCLUDE_DIRS "$ENV{SEMS_BOOST_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(Boost_LIBRARY_DIRS "$ENV{SEMS_BOOST_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(Boost_INCLUDE_DIRS "$ENV{BOOST_INC}" CACHE PATH "Set by default for PR testing")
+SET(Boost_LIBRARY_DIRS "$ENV{BOOST_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(BoostLib_INCLUDE_DIRS "$ENV{SEMS_BOOST_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(BoostLib_LIBRARY_DIRS "$ENV{SEMS_BOOST_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(BoostLib_INCLUDE_DIRS "$ENV{BOOST_INC}" CACHE PATH "Set by default for PR testing")
+SET(BoostLib_LIBRARY_DIRS "$ENV{BOOST_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(ParMETIS_INCLUDE_DIRS "$ENV{SEMS_PARMETIS_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(ParMETIS_LIBRARY_DIRS "$ENV{SEMS_PARMETIS_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(ParMETIS_INCLUDE_DIRS "$ENV{PARMETIS_INC}" CACHE PATH "Set by default for PR testing")
+SET(ParMETIS_LIBRARY_DIRS "$ENV{PARMETIS_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(Zlib_INCLUDE_DIRS "$ENV{SEMS_ZLIB_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(Zlib_LIBRARY_DIRS "$ENV{SEMS_ZLIB_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(Zlib_INCLUDE_DIRS "$ENV{ZLIB_INC}" CACHE PATH "Set by default for PR testing")
+SET(Zlib_LIBRARY_DIRS "$ENV{ZLIB_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(HDF5_INCLUDE_DIRS "$ENV{SEMS_HDF5_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(HDF5_LIBRARY_DIRS "$ENV{SEMS_HDF5_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(HDF5_INCLUDE_DIRS "$ENV{HDF5_INC}" CACHE PATH "Set by default for PR testing")
+SET(HDF5_LIBRARY_DIRS "$ENV{HDF5_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(Netcdf_INCLUDE_DIRS "$ENV{SEMS_NETCDF_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(Netcdf_LIBRARY_DIRS "$ENV{SEMS_NETCDF_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(Netcdf_INCLUDE_DIRS "$ENV{NETCDF_C_INC}" CACHE PATH "Set by default for PR testing")
+SET(Netcdf_LIBRARY_DIRS "$ENV{NETCDF_C_LIB}" CACHE PATH "Set by default for PR testing")
 
-SET(SuperLU_INCLUDE_DIRS "$ENV{SEMS_SUPERLU_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-SET(SuperLU_LIBRARY_DIRS "$ENV{SEMS_SUPERLU_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+SET(SuperLU_INCLUDE_DIRS "$ENV{SUPERLU_INC}" CACHE PATH "Set by default for PR testing")
+SET(SuperLU_LIBRARY_DIRS "$ENV{SUPERLU_LIB}" CACHE PATH "Set by default for PR testing")
 
-set (TPL_Scotch_INCLUDE_DIRS "$ENV{SEMS_SCOTCH_INCLUDE_PATH}" CACHE PATH "Set by default for PR testing")
-set (Scotch_LIBRARY_DIRS "$ENV{SEMS_SCOTCH_LIBRARY_PATH}" CACHE PATH "Set by default for PR testing")
+set (TPL_Scotch_INCLUDE_DIRS "$ENV{SCOTCH_INC}" CACHE PATH "Set by default for PR testing")
+set (Scotch_LIBRARY_DIRS "$ENV{SCOTCH_LIB}" CACHE PATH "Set by default for PR testing")
+
 
 # Build stats compiler wrappers (#7376)
 set(Trilinos_ENABLE_BUILD_STATS ON CACHE BOOL "Set in PullRequestLinuxCommonTestingSettings.cmake")
